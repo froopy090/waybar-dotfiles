@@ -77,7 +77,7 @@
         "max-length": 10
     },
     "custom/launcher":{
-        "format": " ",
+        "format": "",
         "tooltip-format": "I use Arch, btw"
     },
      "temperature": {
