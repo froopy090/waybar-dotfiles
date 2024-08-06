@@ -1,0 +1,89 @@
+{
+	"layer": "top",
+	"modules-left": ["custom/launcher","cpu","memory","network","bluetooth"],
+	"modules-center": ["hyprland/workspaces"],
+	"modules-right": ["wlr/taskbar","temperature","backlight","pulseaudio","clock"],
+	
+	"pulseaudio": {
+		"tooltip": false,
+		"scroll-step": 5,
+		"format": "{icon} {volume}%",
+		"format-muted": "{icon} {volume}%",
+		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"format-icons": {
+			"default": ["", "", ""]
+		}
+	},
+
+    "hyprland/workspaces": {
+		"persistent-workspaces": {
+                "*": 5 //5 workspaces per monitor
+            }
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 20,
+        "icon-theme": "Numix-Circle",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "app_ids-mapping": {
+            "firefoxdeveloperedition": "firefox-developer-edition"
+        },
+        "rewrite": {
+            "Firefox Web Browser": "Firefox",
+            "Foot Server": "Terminal"
+        },
+        "ignore-list": [
+            "kitty"    
+        ]
+    },
+	"network": {
+		"tooltip": false,
+		"format-wifi": "  {essid}",
+		"format-ethernet": " Ethernet Connected"
+	},
+    "bluetooth": {
+	    "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+	    "format": " {status}",
+	    "format-disabled": " {status}", // an empty format will hide the module
+	    "format-connected": " {num_connections} connected",
+	    "tooltip-format": "{controller_alias}\t{controller_address}",
+	    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "blueman-manager"
+    },
+	"backlight": {
+		"tooltip": false,
+		"format": "󰃞 {}%",
+		"interval":1,
+        "on-scroll-up": "light -A 5",
+		"on-scroll-down": "light -U 5"
+	},
+    "clock": {
+        "interval": 1,
+        "tooltip": true,
+        "format": " {:%H:%M:%S}",
+        "tooltip-format": "{:%Y-%m-%d}",
+    },
+    "cpu": {
+        "interval": 15,
+        "format": " {}%",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "max-length": 10
+    },
+    "custom/launcher":{
+        "format": " ",
+        "tooltip-format": "I use Arch, btw"
+    },
+     "temperature": {
+        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input",
+        "critical-threshold": 90,
+        "format-critical": "{temperatureC}°C ",
+        "format": "{temperatureC}°C "
+    }
+}
