@@ -81,7 +81,7 @@
         "tooltip-format": "I use Arch, btw"
     },
      "temperature": {
-        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp1_input",
+        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input",
         "critical-threshold": 90,
         "format-critical": "{temperatureC}°C ",
         "format": "{temperatureC}°C "
